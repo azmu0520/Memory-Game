@@ -1,18 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import {KinoProvider} from './components/Context'
-
-
-ReactDOM.render(
+import Root from './root';
+import { BrowserRouter as Router } from 'react-router-dom';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
-    <KinoProvider>
-
-    <App />
-    </KinoProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Router>
+      <Root />
+    </Router>
+  </React.StrictMode>
 );
-
-
