@@ -7,6 +7,7 @@ import FLOWER6 from "../../Images/Flower6.jpg";
 
 export const initialState = {
   checked: [],
+  count: 0,
   images: [
     { id: 1, src: FLOWER1, matched: false },
     { id: 2, src: FLOWER2, matched: false },
@@ -30,12 +31,20 @@ export const reducer = (state, action) => {
         ...state,
         checked: [...state.checked, action.payload],
       };
+    case "setCount":
+      return {
+        ...state,
+        count: ++state.count,
+      };
     case "match":
       return {
         ...state,
-        images: state.images.map((i) =>
-          i.src == action.payload ? { src: action.payload, matched: true } : i
-        ),
+        images: state.images.map((image) => {
+          if (image.src === action.payload) {
+            return { ...image, matched: true };
+          }
+          return image;
+        }),
       };
     case "clear":
       return {

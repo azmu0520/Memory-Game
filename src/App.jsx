@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import "./App.css";
 import Grid from "./Components/Grid";

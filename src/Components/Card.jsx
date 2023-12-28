@@ -1,28 +1,30 @@
 import "./Card.css";
 import back from "../Images/back.png";
-import { useCallback, useState } from "react";
+import { useEffect, useState } from "react";
 import { useCardContext } from "../context/card";
 export default function Card({ src, matched }) {
   const [{ checked }, dispatch] = useCardContext();
-  const [flip, setFlip] = useState(matched);
+  const [flip, setFlip] = useState(false);
   const handleClick = () => {
     dispatch({ type: "setCheck", payload: src });
     setFlip(true);
-    if (checked.length == 1) {
-      if (checked[0] == src) {
-        dispatch({ type: "match", payload: src });
-        setFlip(matched);
-      } else {
-        dispatch({ type: "clear" });
-      }
-      // setFlip(false);
-    }
-    console.log(flip, "flip");
   };
 
+  useEffect(() => {
+    if (checked.length == 2) {
+      if (checked[0] !== checked[1]) {
+        setTimeout(() => {
+          setFlip(false);
+        }, 700);
+      } else {
+        dispatch({ type: "match", payload: checked[0] });
+      }
+      dispatch({ type: "clear" });
+    }
+  }, [src, checked, dispatch]);
   return (
     <div className="card" onClick={handleClick}>
-      <div className={flip ? "flipped" : ""}>
+      <div className={flip || matched ? "flipped" : ""}>
         <img src={src} alt="card front" className="front" />
         <img src={back} alt="card back" className="back" />
       </div>
