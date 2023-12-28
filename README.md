@@ -8,5 +8,4 @@
 
 - The gif below shows the final layout of the website:
 
-<object data='./Images/load.svg'>
-</object>
+<img src='./src/Images/load.svg' />
