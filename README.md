@@ -1,8 +1,12 @@
-# React + Vite
+# Project Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- In this project, I build a popular online memory game where the goal is to level up our memory. I will be asked to fill in the missing code snippets and gradually create segments of the memory game.
 
-Currently, two official plugins are available:
+- At the start of the game, I will have the Educative icon depicted on these cards, and a turn counter to keep track of the number of turns. Players have to click on the cards to flip them and find all the matching pairs. If the clicked cards are not the same, they will be flipped back, and the turn counter will be incremented by 1.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Once the game is complete, we can also reset it using the “New Game” button to reshuffle all the cards and set the turn counter back to 0. We need to win the game within 15 turns.
+
+- The gif below shows the final layout of the website:
+
+<object data='./Images/load.svg'>
+</object>
